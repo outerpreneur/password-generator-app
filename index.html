@@ -14,7 +14,7 @@
     <title>Frontend Mentor | Password generator app</title>
   </head>
   <body class="bg-blackbg">
-    <main class="flex h-screen justify-center items-center">
+    <main class="flex h-screen justify-center items-center max-w-xs">
       <div id="container" class="flex flex-col gap-6 w-full text-lightGray">
         <div>
           <h1 class="text-center">Password Generator</h1>
@@ -34,23 +34,34 @@
           <p>Character Length</p>
 
           <form action="" class="flex flex-col">
-            <input type="checkbox" id="" name="" value="" /><label
-              >Include Uppercase Letters</label
-            >
-            <input type="checkbox" id="" name="" value="" /><label
-              >Include Lowercase Letters</label
-            >
-            <input type="checkbox" id="" name="" value="" /><label
-              >Include Numbers</label
-            >
-            <input type="checkbox" id="" name="" value="" /><label
-              >Include Symbols</label
-            >
+            <div>
+              <input type="checkbox" id="" name="" value="" /><label
+                >Include Uppercase Letters</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="" name="" value="" /><label
+                >Include Lowercase Letters</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="" name="" value="" /><label
+                >Include Numbers</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="" name="" value="" /><label
+                >Include Symbols</label
+              >
+            </div>
           </form>
 
-          <div>Strength</div>
+          <div class="uppercase bg-blackbg p-3">
+            <p>Strenght</p>
+            <input />MEDIUM
+          </div>
 
-          <button>Generate</button>
+          <button class="bg-accent uppercase text-darkGray">Generate</button>
         </div>
       </div>
     </main>

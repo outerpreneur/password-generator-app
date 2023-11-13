@@ -675,6 +675,15 @@ video {
   clear: none;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -1928,6 +1937,10 @@ video {
 
 .align-super {
   vertical-align: super;
+}
+
+.font-jetFont {
+  font-family: JetBrains Mono;
 }
 
 .font-bold {

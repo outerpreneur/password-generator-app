@@ -14,6 +14,9 @@ module.exports = {
         lightGray: "#E6E5EA",
         accent: "#A4FFAF",
       },
+      fontFamily: {
+        jetFont: "JetBrains Mono",
+      },
     },
   },
   plugins: [],

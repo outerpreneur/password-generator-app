@@ -10,11 +10,17 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link href="/dist/output.css" rel="stylesheet" />
     <title>Frontend Mentor | Password generator app</title>
   </head>
-  <body class="bg-blackbg">
-    <main class="flex h-screen justify-center items-center max-w-xs">
+  <body class="bg-blackbg font-jetFont">
+    <main class="flex h-screen justify-center items-center max-w-xs mx-auto">
       <div id="container" class="flex flex-col gap-6 w-full text-lightGray">
         <div>
           <h1 class="text-center">Password Generator</h1>
@@ -35,24 +41,40 @@
 
           <form action="" class="flex flex-col">
             <div>
-              <input type="checkbox" id="" name="" value="" /><label
-                >Include Uppercase Letters</label
-              >
+              <input
+                type="checkbox"
+                id=""
+                name=""
+                value=""
+                class="mr-2"
+              /><label>Include Uppercase Letters</label>
             </div>
             <div>
-              <input type="checkbox" id="" name="" value="" /><label
-                >Include Lowercase Letters</label
-              >
+              <input
+                type="checkbox"
+                id=""
+                name=""
+                value=""
+                class="mr-2"
+              /><label>Include Lowercase Letters</label>
             </div>
             <div>
-              <input type="checkbox" id="" name="" value="" /><label
-                >Include Numbers</label
-              >
+              <input
+                type="checkbox"
+                id=""
+                name=""
+                value=""
+                class="mr-2"
+              /><label>Include Numbers</label>
             </div>
             <div>
-              <input type="checkbox" id="" name="" value="" /><label
-                >Include Symbols</label
-              >
+              <input
+                type="checkbox"
+                id=""
+                name=""
+                value=""
+                class="mr-2"
+              /><label>Include Symbols</label>
             </div>
           </form>
 

@@ -21,11 +21,11 @@
   </head>
   <body class="bg-blackbg font-jetFont">
     <main class="flex h-screen justify-center items-center max-w-xs mx-auto">
-      <div id="container" class="flex flex-col gap-6 w-full text-lightGray">
+      <div id="container" class="flex flex-col gap-6 w-full text-lightGray p-2">
         <div>
           <h1 class="text-center">Password Generator</h1>
         </div>
-        <div class="bg-darkGray py-3 px-6">
+        <div class="bg-darkGray py-3 px-3">
           <div class="flex justify-between">
             <p>P4$rWord!</p>
             <svg width="21" height="24" xmlns="http://www.w3.org/2000/svg">
@@ -36,8 +36,16 @@
             </svg>
           </div>
         </div>
-        <div class="bg-darkGray py-3 px-6">
-          <p>Character Length</p>
+        <div class="bg-darkGray py-3 px-3">
+          <div>
+            <div class="flex justify-between">
+              <p>Character Length</p>
+              <span>10</span>
+            </div>
+            
+            <input class="w-full" type="range">
+          </div>
+    
 
           <form action="" class="flex flex-col">
             <div>
@@ -78,12 +86,14 @@
             </div>
           </form>
 
-          <div class="uppercase bg-blackbg p-3">
-            <p>Strenght</p>
-            <input />MEDIUM
+          <div class="uppercase bg-blackbg p-3 flex justify-between">
+            <p>STRENGH</p>
+            <div>
+            <span>MEDIUM</span><input />
+            </div>
           </div>
 
-          <button class="bg-accent uppercase text-darkGray">Generate</button>
+          <button class="bg-accent uppercase text-darkGray w-full py-2">Generate</button>
         </div>
       </div>
     </main>

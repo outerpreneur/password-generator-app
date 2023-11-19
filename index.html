@@ -20,7 +20,9 @@
     <title>Frontend Mentor | Password generator app</title>
   </head>
   <body class="bg-blackbg font-jetFont">
-    <main class="flex h-screen justify-center items-center max-w-xs mx-auto">
+    <main
+      class="flex h-screen justify-center items-center max-w-xs md:max-w-sm lg:max-w-md mx-auto"
+    >
       <div id="container" class="flex flex-col gap-6 w-full text-lightGray p-2">
         <div>
           <h1 class="text-center">Password Generator</h1>
@@ -36,16 +38,22 @@
             </svg>
           </div>
         </div>
-        <div class="bg-darkGray py-3 px-3">
-          <div>
+        <div class="bg-darkGray py-3 px-3 flex flex-col gap-3">
+          <div class="">
             <div class="flex justify-between">
               <p>Character Length</p>
-              <span>10</span>
+              <span class="text-accent text-lg">10</span>
             </div>
-            
-            <input class="w-full" type="range">
+
+            <input
+              id="myRange"
+              class="w-full appearance-none rounded-xl bg-transparent accent-white [&::-webkit-slider-thumb]:h-[150px] [&::-webkit-slider-runnable-track]:bg-accent [&::-webkit-slider-runnable-track]:rounded-xl"
+              type="range"
+              min="0"
+              value="10"
+              max="20"
+            />
           </div>
-    
 
           <form action="" class="flex flex-col">
             <div>
@@ -54,7 +62,7 @@
                 id=""
                 name=""
                 value=""
-                class="mr-2"
+                class="mr-2 bg-pink-400 checked:accent-accent"
               /><label>Include Uppercase Letters</label>
             </div>
             <div>
@@ -86,16 +94,49 @@
             </div>
           </form>
 
-          <div class="uppercase bg-blackbg p-3 flex justify-between">
-            <p>STRENGH</p>
-            <div>
-            <span>MEDIUM</span><input />
+          <div class="flex flex-col gap-3">
+            <div class="uppercase bg-blackbg p-3 flex justify-between">
+              <p>STRENGH</p>
+              <div class="flex gap-2">
+                <span>MEDIUM</span>
+                <eiv class="flex gap-1">
+                  <div
+                    class="h-4 w-2 bg-yellow-300 self-center border-white border"
+                  ></div>
+                  <div
+                    class="h-4 w-2 bg-transparent self-center border-white border"
+                  ></div>
+                  <div
+                    class="h-4 w-2 bg-transparent self-center border-white border"
+                  ></div>
+                  <div
+                    class="h-4 w-2 bg-transparent self-center border-white border"
+                  ></div>
+                </eiv>
+              </div>
             </div>
-          </div>
 
-          <button class="bg-accent uppercase text-darkGray w-full py-2">Generate</button>
+            <button
+              class="bg-accent border-accent border uppercase text-darkGray w-full py-2 flex justify-center gap-3 hover:bg-transparent hover:border-accent hover:text-accent"
+            >
+              Generate
+              <svg
+                class="self-center"
+                width="12"
+                height="12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="hover:fill-accent"
+                  fill="currentColor"
+                  d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </main>
+    <script src="app.js"></script>
   </body>
 </html>

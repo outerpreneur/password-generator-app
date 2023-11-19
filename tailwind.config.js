@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        accent: "#A4FFAF",
         darkGray: "#24232C",
         lightGray: "#E6E5EA",
         darkColor: "#244232C",
@@ -12,7 +13,7 @@ module.exports = {
         blackbg: "#18171F",
         darkGray: "#24232C",
         lightGray: "#E6E5EA",
-        accent: "#A4FFAF",
+        bgAccent: "#A4FFAF",
       },
       fontFamily: {
         jetFont: "JetBrains Mono",

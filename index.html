@@ -71,6 +71,7 @@
                 name=""
                 value=""
                 class="mr-2 checked:accent-accent"
+                checked
               /><label>Include Uppercase Letters</label>
             </div>
             <div>
@@ -107,18 +108,22 @@
             <div class="uppercase bg-blackbg p-3 flex justify-between">
               <p>STRENGH</p>
               <div class="flex gap-2">
-                <span>MEDIUM</span>
+                <span id="strenth-level">MEDIUM</span>
                 <eiv class="flex gap-1">
                   <div
+                    id="too-weak"
                     class="h-4 w-2 bg-yellow-300 self-center border-white border"
                   ></div>
                   <div
+                    id="weak"
                     class="h-4 w-2 bg-transparent self-center border-white border"
                   ></div>
                   <div
+                    id="medium"
                     class="h-4 w-2 bg-transparent self-center border-white border"
                   ></div>
                   <div
+                    id="strong"
                     class="h-4 w-2 bg-transparent self-center border-white border"
                   ></div>
                 </eiv>

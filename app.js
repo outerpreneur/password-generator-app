@@ -5,10 +5,8 @@ const characterLength = document.getElementById("character-length");
 const passwordField = document.getElementById("password");
 const characterSlider = document.getElementById("character-slider");
 const clipBoard = document.getElementById("clipboard");
-const numberInputChecked = document.querySelectorAll("form input:checked");
 
 // events
-
 characterSlider.addEventListener("input", (event) => {
   characterLength.innerText = characterSlider.value;
 });
@@ -31,10 +29,50 @@ generateButton.addEventListener("click", (event) => {
 });
 
 generateButton.addEventListener("click", (event) => {
-  numberInputChecked.forEach((checkedItem) => {
-    console.log(numberInputChecked);
+  const numberInputChecked = document.querySelectorAll(
+    'input[type="checkbox"]'
+  );
+  let checkedCount = 0;
+
+  numberInputChecked.forEach((checkbox) => {
+    if (checkbox.checked) {
+      checkedCount++;
+    }
   });
+
+  if (checkedCount === 1) {
+    document.getElementById("too-weak").classList.add("bg-yellow-300");
+    document.getElementById("weak").classList.remove("bg-yellow-300");
+    document.getElementById("medium").classList.remove("bg-yellow-300");
+    document.getElementById("strong").classList.remove("bg-yellow-300");
+    document.getElementById("strenth-level").innerText = "TOO WEAK!";
+  }
+
+  if (checkedCount === 2) {
+    document.getElementById("too-weak").classList.add("bg-yellow-300");
+    document.getElementById("weak").classList.add("bg-yellow-300");
+    document.getElementById("medium").classList.remove("bg-yellow-300");
+    document.getElementById("strong").classList.remove("bg-yellow-300");
+    document.getElementById("strenth-level").innerText = "WEAK";
+  }
+
+  if (checkedCount === 3) {
+    document.getElementById("too-weak").classList.add("bg-yellow-300");
+    document.getElementById("weak").classList.add("bg-yellow-300");
+    document.getElementById("medium").classList.add("bg-yellow-300");
+    document.getElementById("strong").classList.remove("bg-yellow-300");
+    document.getElementById("strenth-level").innerText = "MEDIUM";
+  }
+
+  if (checkedCount === 4) {
+    document.getElementById("too-weak").classList.add("bg-yellow-300");
+    document.getElementById("weak").classList.add("bg-yellow-300");
+    document.getElementById("medium").classList.add("bg-yellow-300");
+    document.getElementById("strong").classList.add("bg-yellow-300");
+    document.getElementById("strenth-level").innerText = "STRONG";
+  }
 });
+
 clipBoard.addEventListener("click", () => {
   navigator.clipboard.writeText(password.innerText);
 });

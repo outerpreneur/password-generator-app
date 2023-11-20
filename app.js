@@ -31,9 +31,10 @@ generateButton.addEventListener("click", (event) => {
 });
 
 generateButton.addEventListener("click", (event) => {
-  console.log(numberInputChecked.length);
+  numberInputChecked.forEach((checkedItem) => {
+    console.log(numberInputChecked);
+  });
 });
-
 clipBoard.addEventListener("click", () => {
   navigator.clipboard.writeText(password.innerText);
 });

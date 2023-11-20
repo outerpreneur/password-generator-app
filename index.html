@@ -23,29 +23,32 @@
     <main
       class="flex h-screen justify-center items-center max-w-xs md:max-w-sm lg:max-w-md mx-auto"
     >
-      <div id="container" class="flex flex-col gap-6 w-full text-lightGray p-2">
+      <div id="container" class="flex flex-col gap-7 w-full text-lightGray p-2">
         <div>
           <h1 class="text-center">Password Generator</h1>
         </div>
         <div class="bg-darkGray py-3 px-3">
           <div class="flex justify-between">
             <p id="password">P4$rWord!</p>
-            <svg
-              width="21"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-              id="clipboard"
-              class="cursor-pointer text-accent hover:text-white"
-            >
-              <path
-                d="M20.341 3.091 17.909.659A2.25 2.25 0 0 0 16.319 0H8.25A2.25 2.25 0 0 0 6 2.25V4.5H2.25A2.25 2.25 0 0 0 0 6.75v15A2.25 2.25 0 0 0 2.25 24h10.5A2.25 2.25 0 0 0 15 21.75V19.5h3.75A2.25 2.25 0 0 0 21 17.25V4.682a2.25 2.25 0 0 0-.659-1.591ZM12.469 21.75H2.53a.281.281 0 0 1-.281-.281V7.03a.281.281 0 0 1 .281-.281H6v10.5a2.25 2.25 0 0 0 2.25 2.25h4.5v1.969a.282.282 0 0 1-.281.281Zm6-4.5H8.53a.281.281 0 0 1-.281-.281V2.53a.281.281 0 0 1 .281-.281H13.5v4.125c0 .621.504 1.125 1.125 1.125h4.125v9.469a.282.282 0 0 1-.281.281Zm.281-12h-3v-3h.451c.075 0 .147.03.2.082L18.667 4.6a.283.283 0 0 1 .082.199v.451Z"
-                fill="currentColor"
-                class="hover:fill-white"
-              />
-            </svg>
+            <div class="flex gap-2">
+              <p id="copy-text" class="text-accent hidden">COPIED!</p>
+              <svg
+                width="21"
+                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                id="clipboard"
+                class="cursor-pointer text-accent hover:text-white"
+              >
+                <path
+                  d="M20.341 3.091 17.909.659A2.25 2.25 0 0 0 16.319 0H8.25A2.25 2.25 0 0 0 6 2.25V4.5H2.25A2.25 2.25 0 0 0 0 6.75v15A2.25 2.25 0 0 0 2.25 24h10.5A2.25 2.25 0 0 0 15 21.75V19.5h3.75A2.25 2.25 0 0 0 21 17.25V4.682a2.25 2.25 0 0 0-.659-1.591ZM12.469 21.75H2.53a.281.281 0 0 1-.281-.281V7.03a.281.281 0 0 1 .281-.281H6v10.5a2.25 2.25 0 0 0 2.25 2.25h4.5v1.969a.282.282 0 0 1-.281.281Zm6-4.5H8.53a.281.281 0 0 1-.281-.281V2.53a.281.281 0 0 1 .281-.281H13.5v4.125c0 .621.504 1.125 1.125 1.125h4.125v9.469a.282.282 0 0 1-.281.281Zm.281-12h-3v-3h.451c.075 0 .147.03.2.082L18.667 4.6a.283.283 0 0 1 .082.199v.451Z"
+                  fill="currentColor"
+                  class="hover:fill-white"
+                />
+              </svg>
+            </div>
           </div>
         </div>
-        <div class="bg-darkGray py-3 px-3 flex flex-col gap-3">
+        <div class="bg-darkGray py-3 px-3 flex flex-col gap-5">
           <div class="">
             <div class="flex justify-between">
               <p>Character Length</p>
@@ -54,16 +57,19 @@
 
             <input
               id="character-slider"
-              class="w-full rounded-xl bg-transparent accent-white [&::-webkit-slider-thumb]:h-[150px] [&::-webkit-slider-runnable-track]:bg-accent [&::-webkit-slider-runnable-track]:rounded-xl"
+              class="w-full appearance-none rounded-xl bg-gradient-to-r from-accent via-accent to-white"
               type="range"
               min="4"
-              value="10"
+              value="12"
               max="20"
-              oninput="updateProgressBarColor(this.value)"
+              style="
+                background: linear-gradient(to right, #a4ffaf 50%, #fff 50%);
+              "
+              oninput="updateSliderColor(this)"
             />
           </div>
 
-          <form id="character-strength" action="" class="flex flex-col">
+          <form id="character-strength" action="" class="flex flex-col gap-2">
             <div>
               <input
                 type="checkbox"
@@ -72,7 +78,7 @@
                 value=""
                 class="mr-2 checked:accent-accent"
                 checked
-              /><label>Include Uppercase Letters</label>
+              /><label for="uppercase">Include Uppercase Letters</label>
             </div>
             <div>
               <input
@@ -82,7 +88,7 @@
                 value=""
                 class="mr-2 checked:accent-accent"
                 checked
-              /><label>Include Lowercase Letters</label>
+              /><label for="lowercase">Include Lowercase Letters</label>
             </div>
             <div>
               <input
@@ -91,7 +97,7 @@
                 name=""
                 value=""
                 class="mr-2 checked:accent-accent"
-              /><label>Include Numbers</label>
+              /><label for="numbers">Include Numbers</label>
             </div>
             <div>
               <input
@@ -100,7 +106,7 @@
                 name=""
                 value=""
                 class="mr-2 checked:accent-accent"
-              /><label>Include Symbols</label>
+              /><label for="symbols">Include Symbols</label>
             </div>
           </form>
 
@@ -109,10 +115,10 @@
               <p>STRENGH</p>
               <div class="flex gap-2">
                 <span id="strenth-level">MEDIUM</span>
-                <eiv class="flex gap-1">
+                <div id="strength-bars" class="flex gap-1">
                   <div
                     id="too-weak"
-                    class="h-4 w-2 bg-red-500 self-center border-white border"
+                    class="h-4 w-2 bg-transparent bg-green-500 self-center border-white border"
                   ></div>
                   <div
                     id="weak"
@@ -126,7 +132,7 @@
                     id="strong"
                     class="h-4 w-2 bg-transparent self-center border-white border"
                   ></div>
-                </eiv>
+                </div>
               </div>
             </div>
 

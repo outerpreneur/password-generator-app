@@ -41,7 +41,7 @@ generateButton.addEventListener("click", (event) => {
   });
 
   if (checkedCount === 1) {
-    document.getElementById("too-weak").classList.add("bg-yellow-300");
+    document.getElementById("too-weak").classList.add("bg-red-300");
     document.getElementById("weak").classList.remove("bg-yellow-300");
     document.getElementById("medium").classList.remove("bg-yellow-300");
     document.getElementById("strong").classList.remove("bg-yellow-300");
@@ -49,8 +49,8 @@ generateButton.addEventListener("click", (event) => {
   }
 
   if (checkedCount === 2) {
-    document.getElementById("too-weak").classList.add("bg-yellow-300");
-    document.getElementById("weak").classList.add("bg-yellow-300");
+    document.getElementById("too-weak").classList.add("bg-orange-300");
+    document.getElementById("weak").classList.add("bg-orange-300");
     document.getElementById("medium").classList.remove("bg-yellow-300");
     document.getElementById("strong").classList.remove("bg-yellow-300");
     document.getElementById("strenth-level").innerText = "WEAK";
@@ -59,16 +59,17 @@ generateButton.addEventListener("click", (event) => {
   if (checkedCount === 3) {
     document.getElementById("too-weak").classList.add("bg-yellow-300");
     document.getElementById("weak").classList.add("bg-yellow-300");
+    document.getElementById("weak").classList.remove("bg-red-300");
     document.getElementById("medium").classList.add("bg-yellow-300");
     document.getElementById("strong").classList.remove("bg-yellow-300");
     document.getElementById("strenth-level").innerText = "MEDIUM";
   }
 
   if (checkedCount === 4) {
-    document.getElementById("too-weak").classList.add("bg-yellow-300");
-    document.getElementById("weak").classList.add("bg-yellow-300");
-    document.getElementById("medium").classList.add("bg-yellow-300");
-    document.getElementById("strong").classList.add("bg-yellow-300");
+    document.getElementById("too-weak").classList.add("bg-green-300");
+    document.getElementById("weak").classList.add("bg-green-300");
+    document.getElementById("medium").classList.add("bg-green-300");
+    document.getElementById("strong").classList.add("bg-green-300");
     document.getElementById("strenth-level").innerText = "STRONG";
   }
 });

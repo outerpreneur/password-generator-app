@@ -12,6 +12,7 @@ characterSlider.addEventListener("input", (event) => {
 });
 
 generateButton.addEventListener("click", (event) => {
+  const passwordLength = parseInt(characterSlider.value);
   let password = "";
   if (document.getElementById("uppercase").checked) {
     password += getRandomUppercase();
@@ -25,6 +26,27 @@ generateButton.addEventListener("click", (event) => {
   if (document.getElementById("symbols").checked) {
     password += getRandomSymbol();
   }
+  document.getElementById("password").innerText = password;
+
+  // Generate additional characters to meet the desired length
+  while (password.length < passwordLength) {
+    const randomCategory = getRandomCategory();
+    switch (randomCategory) {
+      case "uppercase":
+        password += getRandomUppercase();
+        break;
+      case "lowercase":
+        password += getRandomLowercase();
+        break;
+      case "numbers":
+        password += getRandomNumber();
+        break;
+      case "symbols":
+        password += getRandomSymbol();
+        break;
+    }
+  }
+
   document.getElementById("password").innerText = password;
 });
 
@@ -45,11 +67,11 @@ generateButton.addEventListener("click", (event) => {
       .getElementById("strength-bars")
       .querySelectorAll("div")
       .forEach((block) => {
-        block.classList.remove("bg-green-300");
-        block.classList.remove("bg-orange-300");
+        block.classList.remove("bg-green-400");
+        block.classList.remove("bg-bgOrange");
         block.classList.remove("bg-yellow-300");
       });
-    document.getElementById("too-weak").classList.add("bg-red-500");
+    document.getElementById("too-weak").classList.add("bg-bgRed");
     document.getElementById("strenth-level").innerText = "TOO WEAK!";
   }
 
@@ -58,12 +80,12 @@ generateButton.addEventListener("click", (event) => {
       .getElementById("strength-bars")
       .querySelectorAll("div")
       .forEach((block) => {
-        block.classList.remove("bg-green-300");
-        block.classList.remove("bg-red-300");
+        block.classList.remove("bg-green-400");
+        block.classList.remove("bg-bgRed");
         block.classList.remove("bg-yellow-300");
       });
-    document.getElementById("too-weak").classList.add("bg-orange-300");
-    document.getElementById("weak").classList.add("bg-orange-300");
+    document.getElementById("too-weak").classList.add("bg-bgOrange");
+    document.getElementById("weak").classList.add("bg-bgOrange");
     document.getElementById("strenth-level").innerText = "WEAK";
   }
 
@@ -72,9 +94,9 @@ generateButton.addEventListener("click", (event) => {
       .getElementById("strength-bars")
       .querySelectorAll("div")
       .forEach((block) => {
-        block.classList.remove("bg-green-300");
-        block.classList.remove("bg-red-300");
-        block.classList.remove("bg-orange-300");
+        block.classList.remove("bg-green-400");
+        block.classList.remove("bg-bgRed");
+        block.classList.remove("bg-bgOrange");
       });
 
     document.getElementById("too-weak").classList.add("bg-yellow-300");
@@ -88,14 +110,14 @@ generateButton.addEventListener("click", (event) => {
       .getElementById("strength-bars")
       .querySelectorAll("div")
       .forEach((block) => {
-        block.classList.remove("bg-yellow-500");
-        block.classList.remove("bg-red-300");
-        block.classList.remove("bg-orange-300");
+        block.classList.remove("bg-yellow-300");
+        block.classList.remove("bg-bgRed");
+        block.classList.remove("bg-bgOrange");
       });
-    document.getElementById("too-weak").classList.add("bg-green-300");
-    document.getElementById("weak").classList.add("bg-green-300");
-    document.getElementById("medium").classList.add("bg-green-300");
-    document.getElementById("strong").classList.add("bg-green-300");
+    document.getElementById("too-weak").classList.add("bg-green-400");
+    document.getElementById("weak").classList.add("bg-green-400");
+    document.getElementById("medium").classList.add("bg-green-400");
+    document.getElementById("strong").classList.add("bg-green-400");
     document.getElementById("strenth-level").innerText = "STRONG";
   }
   console.log(checkedCount);
@@ -126,15 +148,14 @@ function getRandomSymbol() {
 }
 
 function updateSliderColor(slider) {
-  // Get the current value of the slider
   const sliderValue = slider.value;
-
-  // Calculate a percentage based on the slider's position
   const percentage =
     ((sliderValue - slider.min) / (slider.max - slider.min)) * 100;
-
-  // Update the gradient color dynamically
-  slider.style.background = `linear-gradient(to right, #A4FFAF ${percentage}%, #fff ${percentage}%)`;
+  slider.style.background = `linear-gradient(to right, #A4FFAF ${percentage}%, #18171F ${percentage}%)`;
 }
 
-//
+function getRandomCategory() {
+  const categories = ["uppercase", "lowercase", "numbers", "symbols"];
+  const randomIndex = Math.floor(Math.random() * categories.length);
+  return categories[randomIndex];
+}

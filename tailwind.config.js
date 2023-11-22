@@ -14,6 +14,9 @@ module.exports = {
         darkGray: "#24232C",
         lightGray: "#E6E5EA",
         bgAccent: "#A4FFAF",
+        bgOrange: "#FB7C58",
+        bgRed: "#F64A4A",
+        bgYellow: "F64A4A",
       },
       fontFamily: {
         jetFont: "JetBrains Mono",
